@@ -44,9 +44,9 @@ print.parameters <- function(x, ...) {
   method <- attr(x, "method")
   dist <- class(x)[2]
 
-  s1 <- sprintf("Parâmetros da distribuição %s\n", crayon::yellow(.DIST_LIST[dist]))
+  s1 <- sprintf("Distribuição %s\n", crayon::yellow(.DIST_LIST[dist]))
   cat(s1)
-  cat(sprintf("Método de ajuste: %s\n", crayon::yellow(.METHOD_LIST[method])))
+  cat(sprintf("Estimador de parâmetros: %s\n", crayon::yellow(.METHOD_LIST[method])))
   cat(paste0(rep("-", nchar(s1)-11), collapse = ""), "\n")
   for (n in names(x))
     cat(sprintf("%s = %.4f\n", n, unname(x[n])))

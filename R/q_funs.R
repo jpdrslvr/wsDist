@@ -22,9 +22,9 @@ print.q_function <- function(x, ...) {
 
   cat(sprintf("Quantis\n"))
   cat(sprintf("Distribuição %s\n", crayon::yellow(.DIST_LIST[dist])))
-  s1 <- sprintf("Método de ajuste: %s\n", crayon::yellow(.METHOD_LIST[method]))
+  s1 <- sprintf("Estimador de parâmetros: %s\n", crayon::yellow(.METHOD_LIST[method]))
   cat(s1)
-  cat(paste0(rep("-", nchar(s1)-11), collapse = ""), "\n")
+  cat(paste0(rep("-", nchar(s1)-1), collapse = ""), "\n")
   print(as.numeric(x))
 }
 
@@ -54,6 +54,7 @@ print.q_function <- function(x, ...) {
 
 .q_fun <- function(dist) {
   q_fun <- .q_funs_list[[dist]]
+
   function(p, parameters) {
     par <- as.list(parameters)
     args <- list(p = p)
@@ -72,16 +73,13 @@ for (.dist in names(.d_funs_list)) {
 
 # testes
 # reprex::reprex({
-  # library(wsDist)
+#   library(wsDist)
 #   (x <- rnorm(10))
-#   par <- fit(x, "nor", "ml")
+#   (par <- fit(x, "nor", "mm"))
 #   density_function(x, par)
 #   (p <- prob_function(x, par))
 #   q_function(p, par)
-# # })
+#   plotting_position(x, formula = "blom")
+# })
 #
-#
-#   (x <- rnorm(10))
-#   dnorm(x, mean(x), sd(x))
-#   (p <- pnorm(x, mean(x), sd(x)))
-#   qnorm(p, mean(x), sd(x))
+

@@ -2,7 +2,7 @@
 % Please edit documentation in R/p_funs.R
 \name{prob_function}
 \alias{prob_function}
-\title{Função cumulativa de probabilidade}
+\title{Funçãode distribuição de probabilidade}
 \usage{
 prob_function(x, parameters, exced = FALSE)
 }
@@ -17,7 +17,7 @@ prob_function(x, parameters, exced = FALSE)
 Função cumulativa de probabilidade.
 }
 \description{
-Função cumulativa de probabilidade
+Funçãode distribuição de probabilidade
 }
 \examples{
 x <- rnorm(50)

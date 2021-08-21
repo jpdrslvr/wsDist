@@ -23,7 +23,7 @@ print.density_function <- function(x, ...) {
   s1 <- sprintf("Função densidade de probabilidade\n")
   cat(s1)
   cat(sprintf("Distribuição %s\n", crayon::yellow(.DIST_LIST[dist])))
-  cat(sprintf("Método de ajuste: %s\n", crayon::yellow(.METHOD_LIST[method])))
+  cat(sprintf("Estimador de parâmetros: %s\n", crayon::yellow(.METHOD_LIST[method])))
   cat(paste0(rep("-", nchar(s1)-1), collapse = ""), "\n")
   print(as.numeric(x))
 }
@@ -54,6 +54,7 @@ print.density_function <- function(x, ...) {
 
 .density_fun <- function(dist) {
   d_fun <- .d_funs_list[[dist]]
+
   function(x, parameters) {
     par <- as.list(parameters)
     args <- list(x = x)

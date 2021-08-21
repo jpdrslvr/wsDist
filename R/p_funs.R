@@ -1,4 +1,4 @@
-#' Função cumulativa de probabilidade
+#' Funçãode distribuição de probabilidade
 #'
 #' @param x vetor numérico.
 #' @param parameters parâmetros da distribuição.
@@ -24,7 +24,7 @@ print.prob_function <- function(x, ...) {
   s1 <- sprintf("Função cumulativa de probabilidade\n")
   cat(s1)
   cat(sprintf("Distribuição %s\n", crayon::yellow(.DIST_LIST[dist])))
-  cat(sprintf("Método de ajuste: %s\n", crayon::yellow(.METHOD_LIST[method])))
+  cat(sprintf("Estimador de parâmetros: %s\n", crayon::yellow(.METHOD_LIST[method])))
   cat(paste0(rep("-", nchar(s1)-1), collapse = ""), "\n")
   print(as.numeric(x))
 }
@@ -73,10 +73,3 @@ print.prob_function <- function(x, ...) {
 for (.dist in names(.d_funs_list)) {
   assign(sprintf("prob_function.%s", .dist), .prob_fun(.dist))
 }
-
-# testes
-# library(wsDist)
-# x <- rnorm(50)
-# par <- wsDist::fit(x, "gev", "ml")
-# wsDist::density_function(x, par)
-# wsDist::prob_function(x, par, exced = TRUE)
