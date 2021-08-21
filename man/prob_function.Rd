@@ -2,20 +2,22 @@
 % Please edit documentation in R/p_funs.R
 \name{prob_function}
 \alias{prob_function}
-\title{Ajusta os parâmetros de uma distribuição de probabilidade}
+\title{Função cumulativa de probabilidade}
 \usage{
-prob_function(x, parameters)
+prob_function(x, parameters, exced = FALSE)
 }
 \arguments{
 \item{x}{vetor numérico.}
 
 \item{parameters}{parâmetros da distribuição.}
+
+\item{exced}{logical; probabilidade de excedência.}
 }
 \value{
 Função cumulativa de probabilidade.
 }
 \description{
-Ajusta os parâmetros de uma distribuição de probabilidade
+Função cumulativa de probabilidade
 }
 \examples{
 x <- rnorm(50)

@@ -79,4 +79,9 @@ for (.dist in names(.d_funs_list)) {
     file = "R/exports.R",
     append = TRUE
   )
+  write(
+    x = sprintf("#' @exportS3Method q_function %s\nNULL\n", .dist),
+    file = "R/exports.R",
+    append = TRUE
+  )
 }

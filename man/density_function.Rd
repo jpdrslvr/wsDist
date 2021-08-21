@@ -2,7 +2,7 @@
 % Please edit documentation in R/d_funs.R
 \name{density_function}
 \alias{density_function}
-\title{Ajusta os parâmetros de uma distribuição de probabilidade}
+\title{Função densidade de probabilidade}
 \usage{
 density_function(x, parameters)
 }
@@ -15,7 +15,7 @@ density_function(x, parameters)
 Função densidade de probabilidade.
 }
 \description{
-Ajusta os parâmetros de uma distribuição de probabilidade
+Função densidade de probabilidade
 }
 \examples{
 x <- rnorm(50)
