@@ -61,7 +61,7 @@ print.q_function <- function(x, ...) {
 
     q <- do.call(q_fun, args)
 
-    .q_function_class(p, parameters)
+    .q_function_class(q, parameters)
   }
 }
 
@@ -73,10 +73,15 @@ for (.dist in names(.d_funs_list)) {
 # testes
 # reprex::reprex({
   # library(wsDist)
-  # x <- rnorm(50)
-  # par <- fit(x, "nor", "ml")
-  # density_function(x, par)
-  # p <- prob_function(x, par)
-  # p
-  # q_function(p, par)
-# })
+#   (x <- rnorm(10))
+#   par <- fit(x, "nor", "ml")
+#   density_function(x, par)
+#   (p <- prob_function(x, par))
+#   q_function(p, par)
+# # })
+#
+#
+#   (x <- rnorm(10))
+#   dnorm(x, mean(x), sd(x))
+#   (p <- pnorm(x, mean(x), sd(x)))
+#   qnorm(p, mean(x), sd(x))
