@@ -108,12 +108,12 @@ print.parameters <- function(x, ...) {
   # setando um valor inicial para epsilon por meio do Método dos Momentos-L
   MML <- lmom::samlmu(x=x, nmom=4)
 
-  GEV_par_MML <- pelgev(MML)
+  GEV_par_MML <- lmom::pelgev(MML)
   epsilon_ini <- as.numeric(abs(GEV_par_MML[3]))
 
   f = function(epsilon) {
     f_est <- ((-(exp(lgamma(1+3*epsilon)) )+3*(exp(lgamma(1+epsilon)))*(exp(lgamma(1+2*epsilon)))-2*(exp(lgamma(1+epsilon)))^3)/((exp(lgamma(1+2*epsilon)))-(exp(lgamma(1+epsilon)))^2)^(3/2))
-    rmse(E_x, f_est)
+    Metrics::rmse(E_x, f_est)
   }
 
   # ------------------

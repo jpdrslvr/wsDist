@@ -105,3 +105,15 @@ quiet <- function(x) {
   )
 
 }
+
+# exporta métodos para o NAMESPACE
+# file.create("R/exports.R")
+# for (.dist in names(.d_funs_list)) {
+#   for (.met in c("density_function", "prob_function", "q_function")) {
+#     write(
+#       x = sprintf("#' @exportS3Method %s %s\nNULL\n", .met, .dist),
+#       file = "R/exports.R",
+#       append = TRUE
+#     )
+#   }
+# }

@@ -20,4 +20,5 @@ Imports:
   glogis,
   ismev,
   goftest,
-  ppcc
+  ppcc,
+  Metrics

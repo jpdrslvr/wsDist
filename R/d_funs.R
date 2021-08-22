@@ -66,23 +66,8 @@ print.density_function <- function(x, ...) {
   }
 }
 
-# gera os métodos e exporta para o namespace
+# gera os métodos
 file.create("R/exports.R")
 for (.dist in names(.d_funs_list)) {
   assign(sprintf("density_function.%s", .dist), .density_fun(.dist))
-  write(
-    x = sprintf("#' @exportS3Method density_function %s\nNULL\n", .dist),
-    file = "R/exports.R",
-    append = TRUE
-  )
-  write(
-    x = sprintf("#' @exportS3Method prob_function %s\nNULL\n", .dist),
-    file = "R/exports.R",
-    append = TRUE
-  )
-  write(
-    x = sprintf("#' @exportS3Method q_function %s\nNULL\n", .dist),
-    file = "R/exports.R",
-    append = TRUE
-  )
 }
