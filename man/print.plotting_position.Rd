@@ -7,7 +7,7 @@
 \method{print}{plotting_position}(x, ...)
 }
 \arguments{
-\item{x}{S3 object of class q_function.}
+\item{x}{S3 object of class plotting_position.}
 }
 \description{
 print method

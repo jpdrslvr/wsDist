@@ -31,7 +31,7 @@ print.density_function <- function(x, ...) {
 .density_function_class <- function(d, par) {
   structure(
     d,
-    class = c("density_function", class(par)[2]),
+    class = c("density_function", class(par)[2], "numeric"),
     method = attr(par, "method")
   )
 }

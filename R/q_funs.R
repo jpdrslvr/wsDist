@@ -31,7 +31,7 @@ print.q_function <- function(x, ...) {
 .q_function_class <- function(p, par) {
   structure(
     p,
-    class = c("q_function", class(par)[2]),
+    class = c("q_function", class(par)[2], "numeric"),
     method = attr(par, "method")
   )
 }
@@ -70,16 +70,4 @@ print.q_function <- function(x, ...) {
 for (.dist in names(.d_funs_list)) {
   assign(sprintf("q_function.%s", .dist), .q_fun(.dist))
 }
-
-# testes
-# reprex::reprex({
-#   library(wsDist)
-#   (x <- rnorm(10))
-#   (par <- fit(x, "nor", "mm"))
-#   density_function(x, par)
-#   (p <- prob_function(x, par))
-#   q_function(p, par)
-#   plotting_position(x, formula = "blom")
-# })
-#
 

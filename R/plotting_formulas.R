@@ -16,7 +16,7 @@
 #' x <- rnorm(50)
 #' plotting_position(x, formula = "weibull")
 #' @export
-plotting_position <- function(x, exced = FALSE, formula = "weibull") {
+plotting_position <- function(x, formula = "weibull", exced = FALSE) {
   formula <- match.arg(formula, c("weibull", "gringorten", "blom", "hazem", "cunnane"))
 
   plt_pos_fun <- get(paste0(".", formula))
@@ -31,7 +31,7 @@ plotting_position <- function(x, exced = FALSE, formula = "weibull") {
 
 #' print method
 #' @method print plotting_position
-#' @param x S3 object of class q_function.
+#' @param x S3 object of class plotting_position.
 #' @export
 print.plotting_position <- function(x, ...) {
   formula <- attr(x, "formula")

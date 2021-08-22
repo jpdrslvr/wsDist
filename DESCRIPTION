@@ -18,4 +18,6 @@ Imports:
   ExtDist,
   univariateML,
   glogis,
-  ismev
+  ismev,
+  goftest,
+  ppcc

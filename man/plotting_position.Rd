@@ -4,14 +4,14 @@
 \alias{plotting_position}
 \title{Posição de plotagem}
 \usage{
-plotting_position(x, exced = FALSE, formula = "weibull")
+plotting_position(x, formula = "weibull", exced = FALSE)
 }
 \arguments{
 \item{x}{vetor numérico.}
 
-\item{exced}{logical; probabilidade de excedência.}
-
 \item{formula}{weibull, gringorten, blom, hazem ou cunnane.}
+
+\item{exced}{logical; probabilidade de excedência.}
 }
 \value{
 posições de plotagem para a fórmula selecionada.

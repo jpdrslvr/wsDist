@@ -61,19 +61,47 @@ quiet <- function(x) {
 
 .get_parameters_names <- function(dist) {
   switch(dist,
-         # exp     = "rate",
-         gam     = c("alpha", "beta"),
-         gev     = c("xi", "alpha", "k"),
-         glo     = c("xi", "alpha", "k"),
-         gno     = c("xi", "alpha", "k"),
-         gpa     = c("xi", "alpha", "k"),
-         gum_min = c("xi", "alpha"),
-         gum_max = c("xi", "alpha"),
-         kap     = c("xi", "alpha", "k", "h"),
-         ln3     = c("zeta", "mu", "sigma"),
-         nor     = c("mu", "sigma"),
-         pe3     = c("mu", "sigma", "gamma"),
-         wak     = c("xi", "alpha", "beta", "gamma", "delta"),
-         wei     = c("zeta", "beta", "delta")
+    # exp     = "rate",
+    gam     = c("alpha", "beta"),
+    gev     = c("xi", "alpha", "k"),
+    glo     = c("xi", "alpha", "k"),
+    gno     = c("xi", "alpha", "k"),
+    gpa     = c("xi", "alpha", "k"),
+    gum_min = c("xi", "alpha"),
+    gum_max = c("xi", "alpha"),
+    kap     = c("xi", "alpha", "k", "h"),
+    ln3     = c("zeta", "mu", "sigma"),
+    nor     = c("mu", "sigma"),
+    pe3     = c("mu", "sigma", "gamma"),
+    wak     = c("xi", "alpha", "beta", "gamma", "delta"),
+    wei     = c("zeta", "beta", "delta")
   )
+}
+
+# para o teste de filliben
+.fix_dist_name_ppcc <- function(dist) {
+
+  switch(dist,
+    nor = "qnorm",
+    exp = "qexp",
+    gum = "qgumbel",
+    wei = "qweibull",
+    pe3 = "qpearson3",
+    gev = "qgev",
+    glo = "qglogis",
+    NULL
+  )
+
+}
+
+.fix_ppos_ppcc <- function(ppos) {
+
+  switch(ppos,
+    weibull = "Weibull",
+    gringorten = "Gringorton",
+    blom = "Blom",
+    cunnane = "Cunane",
+    "weibull"
+  )
+
 }

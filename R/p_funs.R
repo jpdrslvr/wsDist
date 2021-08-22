@@ -32,7 +32,7 @@ print.prob_function <- function(x, ...) {
 .prob_function_class <- function(d, par) {
   structure(
     d,
-    class = c("prob_function", class(par)[2]),
+    class = c("prob_function", class(par)[2], "numeric"),
     method = attr(par, "method")
   )
 }

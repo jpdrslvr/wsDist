@@ -29,7 +29,7 @@ fit <- function(x, dist, method = "mml") {
 .par_class <- function(par, dist, method) {
   structure(
     unname(par),
-    class = c("parameters", dist),
+    class = c("parameters", dist, "numeric"),
     method = method,
     dist = dist,
     names = .get_parameters_names(dist)
