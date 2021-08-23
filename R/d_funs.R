@@ -67,7 +67,6 @@ print.density_function <- function(x, ...) {
 }
 
 # gera os métodos
-file.create("R/exports.R")
 for (.dist in names(.d_funs_list)) {
   assign(sprintf("density_function.%s", .dist), .density_fun(.dist))
 }

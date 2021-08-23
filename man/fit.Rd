@@ -11,7 +11,6 @@ fit(x, dist, method = "mml")
 
 \item{dist}{distribuição de probabilidade.
 \itemize{
-    \item "exp" (Exponencial)
     \item "gam" (Gamma)
     \item "gev" (GEV)
     \item "glo" (Logística generalizada)
