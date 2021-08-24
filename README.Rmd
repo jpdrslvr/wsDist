@@ -84,9 +84,12 @@ data.frame(
   "Parâmetros MM"  = c(y, y, n, n, n, y, y, n, y, y, n, n, y),
   "Parâmetros MMV" = c(y, y, y, n, n, n, y, n, y, y, n, n, y),
   "Parâmetros MM-L" = c(rep(y, 13)),
-  "Teste de Filliben" = c(n, y, y, rep(n, 6), y, y, n, y)
+  "Teste de Filliben" = c(n, y, y, rep(n, 6), y, y, n, y),
+  "Teste de Anderson-Darling" = c(rep(y, 13)),
+  "Teste de Qui-quadrado" = c(rep(y, 13)),
+  "Teste de Kolmogorov–Smirnov" = c(rep(y, 13))
 ) %>% kable(format = "pipe", align = "c", col.names = c("Distribuição", "Parâmetros MM", "Parâmetros MMV", "Parâmetros MML", 
-"Teste de Filliben"))
+"Teste de Filliben", "Teste de Anderson-Darling", "Teste de Qui-quadrado", "Teste de Kolmogorov-Smirnov"))
 #
 
 ```

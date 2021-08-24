@@ -49,8 +49,8 @@ library(wsDist)
 ```
 
 ```
-##  [1]  0.5079935  1.2695309 -0.2433801  0.1205153  0.8030157 -0.8070466
-##  [7]  1.5765171  0.6590530 -0.5986896  1.4827146
+##  [1] -0.37316235  0.67402187  0.53896975 -1.52203786  0.48653701 -0.81129397
+##  [7] -0.04176941 -0.14835219  1.33769987  0.79587793
 ```
 
 ```r
@@ -61,8 +61,8 @@ library(wsDist)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------- 
-## mu = 0.4770
-## sigma = 0.8460
+## mu = 0.0936
+## sigma = 0.8469
 ```
 
 ```r
@@ -74,8 +74,8 @@ density_function(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------------------------------- 
-##  [1] 0.4712703 0.3040793 0.3281617 0.4315153 0.4378399 0.1490246 0.2026515
-##  [8] 0.4607942 0.2101101 0.2326314
+##  [1] 0.40468760 0.37248833 0.41025627 0.07632988 0.42302161 0.26615995
+##  [7] 0.46510217 0.45223936 0.16013644 0.33403300
 ```
 
 ```r
@@ -87,8 +87,8 @@ density_function(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ---------------------------------- 
-##  [1] 0.51460230 0.82557381 0.19722317 0.33672275 0.65001240 0.06452145
-##  [7] 0.90314866 0.58518528 0.10175941 0.88274479
+##  [1] 0.29073824 0.75343123 0.70050455 0.02820422 0.67865376 0.14262669
+##  [7] 0.43647698 0.38752920 0.92908689 0.79650990
 ```
 
 ```r
@@ -100,8 +100,8 @@ q_function(p, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------------------------------- 
-##  [1]  0.5079935  1.2695309 -0.2433801  0.1205153  0.8030157 -0.8070466
-##  [7]  1.5765171  0.6590530 -0.5986896  1.4827146
+##  [1] -0.37316235  0.67402187  0.53896975 -1.52203786  0.48653701 -0.81129397
+##  [7] -0.04176941 -0.14835219  1.33769987  0.79587793
 ```
 
 ```r
@@ -125,8 +125,8 @@ ad_test(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ------------------------------------ 
-## statistic = 2.3682
-## p.value = 0.1757
+## statistic = 1.9114
+## p.value = 0.2871
 ```
 
 ```r
@@ -151,25 +151,25 @@ filliben_test(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ---------------------------- 
-## statistic = 0.9867
-## p.value = 0.8934
+## statistic = 0.9806
+## p.value = 0.7401
 ```
 ## Disponibilidade
 
 Distribuições disponíveis para métodos e testes.
 
-|      Distribuição       | Parâmetros MM | Parâmetros MMV | Parâmetros MML | Teste de Filliben |
-|:-----------------------:|:-------------:|:--------------:|:--------------:|:-----------------:|
-|          Gamma          |      ✅       |       ✅       |       ✅       |        ❌         |
-|           GEV           |      ✅       |       ✅       |       ✅       |        ✅         |
-| Logística generalizada  |      ❌       |       ✅       |       ✅       |        ✅         |
-|   Normal generalizada   |      ❌       |       ❌       |       ✅       |        ❌         |
-|   Pareto generalizada   |      ❌       |       ❌       |       ✅       |        ❌         |
-|   Gumbel para mínimos   |      ✅       |       ❌       |       ✅       |        ❌         |
-|   Gumbel para máximos   |      ✅       |       ✅       |       ✅       |        ❌         |
-|          Kappa          |      ❌       |       ❌       |       ✅       |        ❌         |
-| Log-normal 3 parâmetros |      ✅       |       ✅       |       ✅       |        ❌         |
-|         Normal          |      ✅       |       ✅       |       ✅       |        ✅         |
-|     Pearson tipo 3      |      ❌       |       ❌       |       ✅       |        ✅         |
-|         Wakeby          |      ❌       |       ❌       |       ✅       |        ❌         |
-|         Weibull         |      ✅       |       ✅       |       ✅       |        ✅         |
+|      Distribuição       | Parâmetros MM | Parâmetros MMV | Parâmetros MML | Teste de Filliben | Teste de Anderson-Darling | Teste de Qui-quadrado | Teste de Kolmogorov-Smirnov |
+|:-----------------------:|:-------------:|:--------------:|:--------------:|:-----------------:|:-------------------------:|:---------------------:|:---------------------------:|
+|          Gamma          |      ✅       |       ✅       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
+|           GEV           |      ✅       |       ✅       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
+| Logística generalizada  |      ❌       |       ✅       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
+|   Normal generalizada   |      ❌       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
+|   Pareto generalizada   |      ❌       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
+|   Gumbel para mínimos   |      ✅       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
+|   Gumbel para máximos   |      ✅       |       ✅       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
+|          Kappa          |      ❌       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
+| Log-normal 3 parâmetros |      ✅       |       ✅       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
+|         Normal          |      ✅       |       ✅       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
+|     Pearson tipo 3      |      ❌       |       ❌       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
+|         Wakeby          |      ❌       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
+|         Weibull         |      ✅       |       ✅       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
