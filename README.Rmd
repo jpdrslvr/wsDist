@@ -80,18 +80,6 @@ d_list <- c("Gamma", "GEV", "Logística generalizada", "Normal generalizada",
 "Kappa", "Log-normal 3 parâmetros", "Normal", "Pearson tipo 3", 
 "Wakeby", "Weibull")
 
-# data.frame(
-#   "Distribuição" = unname(d_list),
-#   "Parâmetros MM"  = c(y, y, n, n, n, y, y, n, y, y, n, n, y),
-#   "Parâmetros MMV" = c(y, y, y, n, n, n, y, n, y, y, n, n, y),
-#   "Parâmetros MM-L" = c(rep(y, 13)),
-#   "Teste de Filliben" = c(n, y, y, rep(n, 6), y, y, n, y),
-#   "Teste de Anderson-Darling" = c(rep(y, 13)),
-#   "Teste de Qui-quadrado" = c(rep(y, 13)),
-#   "Teste de Kolmogorov–Smirnov" = c(rep(y, 13))
-# ) %>% kable(format = "pipe", align = "c", col.names = c("Distribuição", "Parâmetros MM", "Parâmetros MMV", "Parâmetros MML", 
-# "Teste de Filliben", "Teste de Anderson-Darling", "Teste de Qui-quadrado", "Teste de Kolmogorov-Smirnov"))
-
 data.frame(
     "Distribuição" = unname(d_list),
     "Parâmetros MM"  = c(y, y, n, n, n, y, y, n, y, y, n, n, y),
@@ -102,7 +90,7 @@ data.frame(
     "Teste de Qui-quadrado" = c(rep(y, 13)),
     "Teste de Kolmogorov–Smirnov" = c(rep(y, 13))
 ) %>% kable(
-  format = "html", align = "c",
+  format = "html", align = rep("c", 8),
   col.names = c(" ", "MM", "MMV", "MML", 
   "Filliben", "Anderson-Darling", "Qui-quadrado", "Kolmogorov-Smirnov")) %>%
   add_header_above(c(" " = 1, "Parâmetros" = 3, "Testes" = 4)) %>%
