@@ -1,12 +1,3 @@
-#' @exportS3Method density_function exp 
-NULL
-
-#' @exportS3Method prob_function exp 
-NULL
-
-#' @exportS3Method q_function exp 
-NULL
-
 #' @exportS3Method density_function gam 
 NULL
 

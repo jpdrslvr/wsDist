@@ -1,0 +1,92 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# wsDist
+
+## Descrição
+
+Ajuste de distribuições de probabilidade pelos métodos dos Momentos (mmo), Momentos-L (mml) e Máxima verossimilhança (ml).
+Distribuições disponíveis:
+
+  - Gamma (gam)
+  - GEV (gev)
+  - Logística generalizada (glo)
+  - Normal generalizada (gno)
+  - Pareto generalizada (gpa)
+  - Gumbel para mínimos (gum_min)
+  - Gumbel para máximos (gum_max)
+  - Kappa (kap)
+  - Log-normal 3 parâmetros (ln3)
+  - Normal (nor)
+  - Pearson tipo 3 (pt3)
+  - Wakeby (wak)
+  - Weibull (wei)
+  
+## Funções
+  - `fit(x, dist, method)`: ajusta os parâmetros de *x* para a distribuição *dist*, pelo método *method*. 
+  - `density_function(x, parameters)`: retorna a função densidade de probabilidade.
+  - `prob_function(x, parameters, exced = FALSE)`: retorna a função cumulativa de probabilidade.
+  - `plotting_position(x, formula, exced = FALSE)`: retorna as posições de plotagem. `formula` pode ser `"weibull"`, `"gringorten"`, `"blom"`, `"hazem"` ou `"cunnane"`.
+
+
+## Testes de aderência
+ - `ad_test`: Teste de Anderson-darling.
+ - `chi_square_test`: Teste de Qui-quadrado
+ - `ks_test`: Teste de Kolmogorov–Smirnov
+ - `filliben_test`: Teste de Filliben
+  
+
+## Instalação
+
+``` r
+# Instalando através do pacote devtools
+devtools::install_github("jpdrslvr/wsDist")
+```
+
+## Exemplos
+```{r, warning=FALSE}
+library(wsDist)
+(x <- rnorm(10))
+
+(par <- fit(x, "nor", "mm"))
+
+density_function(x, par)
+
+(p <- prob_function(x, par))
+
+q_function(p, par)
+
+plotting_position(x, formula = "blom")
+
+ad_test(x, par)
+
+chi_square_test(x, par)
+
+filliben_test(x, par)
+
+```
+## Disponibilidade
+
+Distribuições disponíveis para métodos e testes.
+```{r, echo=FALSE}
+library(knitr)
+library(magrittr)
+n <- "❌"
+y <- "✅"
+
+d_list <- c("Gamma", "GEV", "Logística generalizada", "Normal generalizada", 
+"Pareto generalizada", "Gumbel para mínimos", "Gumbel para máximos", 
+"Kappa", "Log-normal 3 parâmetros", "Normal", "Pearson tipo 3", 
+"Wakeby", "Weibull")
+
+data.frame(
+  "Distribuição" = unname(d_list),
+  "Parâmetros MM"  = c(y, y, n, n, n, y, y, n, y, y, n, n, y),
+  "Parâmetros MMV" = c(y, y, y, n, n, n, y, n, y, y, n, n, y),
+  "Parâmetros MM-L" = c(rep(y, 13)),
+  "Teste de Filliben" = c(n, y, y, rep(n, 6), y, y, n, y)
+) %>% kable(format = "pipe", align = "c", col.names = c("Distribuição", "Parâmetros MM", "Parâmetros MMV", "Parâmetros MML", 
+"Teste de Filliben"))
+#
+
+```
