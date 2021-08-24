@@ -106,3 +106,15 @@ quiet <- function(x) {
 
 }
 
+# tabela do README
+# data.frame(
+#   "Distribuição" = unname(.DIST_LIST),
+#   "Parâmetros MM"  = c(y, y, n, n, n, y, y, n, y, y, n, n, y),
+#   "Parâmetros MMV" = c(y, y, y, n, n, n, y, n, y, y, n, n, y),
+#   "Parâmetros MM-L" = c(rep(y, 13)),
+#   "Teste de Filliben" = c(n, y, y, rep(n, 6), y, y, n, y)
+# ) %>% kable(format = "pipe", align = "c")
+#
+# n = "❌"
+#
+# y = "✅"

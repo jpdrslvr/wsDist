@@ -101,3 +101,23 @@ filliben_test(x, par)
 #> statistic = 0.9880
 #> p.value = 0.9163
 ```
+
+## Disponibilidade
+
+Distribuições disponíveis para métodos e testes.
+
+|      Distribuição       | Parâmetros MMO | Parâmetros ML | Parâmetros MML | Teste de Filliben |
+|:-----------------------:|:-------------:|:--------------:|:---------------:|:-----------------:|
+|          Gamma          |      ✅       |       ✅       |       ✅        |        ❌         |
+|           GEV           |      ✅       |       ✅       |       ✅        |        ✅         |
+| Logística generalizada  |      ❌       |       ✅       |       ✅        |        ✅         |
+|   Normal generalizada   |      ❌       |       ❌       |       ✅        |        ❌         |
+|   Pareto generalizada   |      ❌       |       ❌       |       ✅        |        ❌         |
+|   Gumbel para mínimos   |      ✅       |       ❌       |       ✅        |        ❌         |
+|   Gumbel para máximos   |      ✅       |       ✅       |       ✅        |        ❌         |
+|          Kappa          |      ❌       |       ❌       |       ✅        |        ❌         |
+| Log-normal 3 parâmetros |      ✅       |       ✅       |       ✅        |        ❌         |
+|         Normal          |      ✅       |       ✅       |       ✅        |        ✅         |
+|     Pearson tipo 3      |      ❌       |       ❌       |       ✅        |        ✅         |
+|         Wakeby          |      ❌       |       ❌       |       ✅        |        ❌         |
+|         Weibull         |      ✅       |       ✅       |       ✅        |        ✅         |
