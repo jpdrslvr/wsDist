@@ -49,8 +49,8 @@ library(wsDist)
 ```
 
 ```
-##  [1] -0.37316235  0.67402187  0.53896975 -1.52203786  0.48653701 -0.81129397
-##  [7] -0.04176941 -0.14835219  1.33769987  0.79587793
+##  [1]  0.1965886  0.4210939  0.5955979  1.0071905 -2.0071161  1.4405120
+##  [7]  0.3590942 -1.2274356 -0.1200807 -1.3646927
 ```
 
 ```r
@@ -61,8 +61,8 @@ library(wsDist)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------- 
-## mu = 0.0936
-## sigma = 0.8469
+## mu = -0.0699
+## sigma = 1.1132
 ```
 
 ```r
@@ -74,8 +74,8 @@ density_function(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------------------------------- 
-##  [1] 0.40468760 0.37248833 0.41025627 0.07632988 0.42302161 0.26615995
-##  [7] 0.46510217 0.45223936 0.16013644 0.33403300
+##  [1] 0.34826037 0.32516272 0.29973214 0.22440895 0.07883534 0.14274209
+##  [7] 0.33273377 0.20871677 0.35802266 0.18221006
 ```
 
 ```r
@@ -87,8 +87,8 @@ density_function(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ---------------------------------- 
-##  [1] 0.29073824 0.75343123 0.70050455 0.02820422 0.67865376 0.14262669
-##  [7] 0.43647698 0.38752920 0.92908689 0.79650990
+##  [1] 0.59461002 0.67043052 0.72503547 0.83338215 0.04090681 0.91259153
+##  [7] 0.65003145 0.14920722 0.48203091 0.12238569
 ```
 
 ```r
@@ -100,8 +100,8 @@ q_function(p, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------------------------------- 
-##  [1] -0.37316235  0.67402187  0.53896975 -1.52203786  0.48653701 -0.81129397
-##  [7] -0.04176941 -0.14835219  1.33769987  0.79587793
+##  [1]  0.1965886  0.4210939  0.5955979  1.0071905 -2.0071161  1.4405120
+##  [7]  0.3590942 -1.2274356 -0.1200807 -1.3646927
 ```
 
 ```r
@@ -125,8 +125,8 @@ ad_test(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ------------------------------------ 
-## statistic = 1.9114
-## p.value = 0.2871
+## statistic = 0.7988
+## p.value = 0.8502
 ```
 
 ```r
@@ -151,25 +151,160 @@ filliben_test(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ---------------------------- 
-## statistic = 0.9806
-## p.value = 0.7401
+## statistic = 0.9689
+## p.value = 0.4702
 ```
 ## Disponibilidade
 
 Distribuições disponíveis para métodos e testes.
-
-|      Distribuição       | Parâmetros MM | Parâmetros MMV | Parâmetros MML | Teste de Filliben | Teste de Anderson-Darling | Teste de Qui-quadrado | Teste de Kolmogorov-Smirnov |
-|:-----------------------:|:-------------:|:--------------:|:--------------:|:-----------------:|:-------------------------:|:---------------------:|:---------------------------:|
-|          Gamma          |      ✅       |       ✅       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
-|           GEV           |      ✅       |       ✅       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
-| Logística generalizada  |      ❌       |       ✅       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
-|   Normal generalizada   |      ❌       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
-|   Pareto generalizada   |      ❌       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
-|   Gumbel para mínimos   |      ✅       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
-|   Gumbel para máximos   |      ✅       |       ✅       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
-|          Kappa          |      ❌       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
-| Log-normal 3 parâmetros |      ✅       |       ✅       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
-|         Normal          |      ✅       |       ✅       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
-|     Pearson tipo 3      |      ❌       |       ❌       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
-|         Wakeby          |      ❌       |       ❌       |       ✅       |        ❌         |            ✅             |          ✅           |             ✅              |
-|         Weibull         |      ✅       |       ✅       |       ✅       |        ✅         |            ✅             |          ✅           |             ✅              |
+<table class="table table-striped table-hover table-bordered" style="margin-left: auto; margin-right: auto;">
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Parâmetros</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Testes</div></th>
+</tr>
+  <tr>
+   <th style="text-align:center;">   </th>
+   <th style="text-align:center;"> MM </th>
+   <th style="text-align:center;"> MMV </th>
+   <th style="text-align:center;"> MML </th>
+   <th style="text-align:center;"> Filliben </th>
+   <th style="text-align:center;"> Anderson-Darling </th>
+   <th style="text-align:center;"> Qui-quadrado </th>
+   <th style="text-align:center;"> Kolmogorov-Smirnov </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Gamma </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> GEV </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Logística generalizada </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Normal generalizada </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Pareto generalizada </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Gumbel para mínimos </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Gumbel para máximos </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Kappa </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Log-normal 3 parâmetros </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Normal </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Pearson tipo 3 </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Wakeby </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ❌ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> Weibull </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+   <td style="text-align:center;"> ✅ </td>
+  </tr>
+</tbody>
+</table>
