@@ -22,4 +22,5 @@ Imports:
   goftest,
   ppcc,
   Metrics,
+  gnorm,
   actuar (>= 3.1.4)
