@@ -57,7 +57,7 @@ print.density_function <- function(x, ...) {
 
   function(x, parameters) {
     par <- as.list(parameters)
-    args <- list(x = x)
+    args <- list(x)
     args <- c(args, unname(par))
 
     d <- do.call(d_fun, args)

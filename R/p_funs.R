@@ -38,26 +38,26 @@ print.prob_function <- function(x, ...) {
 }
 
 .p_funs_list <- list(
-  gam     = pgamma,
-  gev     = EnvStats::pgevd,
-  glo     = glogis::pglogis,
-  gno     = gnorm::pgnorm,
-  gpa     = Pareto::pPareto,
+  gam     = function(x, alpha, beta) lmom::cdfgam(x, c(alpha, beta)),
+  gev     = function(x, xi, alpha, k) lmom::cdfgev(x, c(xi, alpha, k)),
+  glo     = function(x, xi, alpha, k) lmom::cdfglo(x, c(xi, alpha, k)),
+  gno     = function(x, xi, alpha, k) lmom::cdfgno(x, c(xi, alpha, k)),
+  gpa     = function(x, xi, alpha, k) lmom::cdfgpa(x, c(xi, alpha, k)),
   gum_min = function(x, xi, alpha) lmom::cdfgum(x, c(xi, alpha)),
-  gum_max = function(x, xi, alpha) lmom::cdfgum(x, c(xi, alpha)),
-  kap     = FAdist::pkappa4,
-  ln3     = FAdist::plnorm3,
-  nor     = pnorm,
-  pe3     = PearsonDS::ppearsonIII,
-  wak     = function(x, xi, alpha, beta, gamma, delta) lmomco::cdfwak(x, c(xi, alpha, beta, gamma, delta)),
-  wei     = FAdist::pweibull3
+  gum_max = function(x, xi, alpha) exp(-exp(-alpha * (x - xi))),
+  kap     = function(x, xi, alpha, k, h) lmom::cdfkap(x, c(xi, alpha, k, h)),
+  ln3     = function(x, zeta, mu, sigma) lmom::cdfln3(x, c(zeta, mu, sigma)),
+  nor     = function(x, mu, sigma) lmom::cdfnor(x, c(mu, sigma)),
+  pe3     = function(x, mu, sigma, gamma) lmom::cdfpe3(x, c(mu, sigma, gamma)),
+  wak     = function(x, xi, alpha, beta, gamma, delta) lmom::cdfwak(x, c(xi, alpha, beta, gamma, delta)),
+  wei     = function(x, zeta, beta, delta) lmom::cdfwei(x, c(zeta, beta, delta))
 )
 
 .prob_fun <- function(dist) {
   p_fun <- .p_funs_list[[dist]]
   function(x, parameters, exced = FALSE) {
     par <- as.list(parameters)
-    args <- list(q = x)
+    args <- list(x)
     args <- c(args, unname(par))
 
     p <- do.call(p_fun, args)

@@ -42,3 +42,5 @@ print.plotting_position <- function(x, ...) {
   cat(paste0(rep("-", max(nchar(s1), nchar(s2) - 11) - 1), collapse = ""), "\n")
   print(as.numeric(x))
 }
+
+

@@ -57,7 +57,7 @@ print.q_function <- function(x, ...) {
 
   function(p, parameters) {
     par <- as.list(parameters)
-    args <- list(p = p)
+    args <- list(p)
     args <- c(args, unname(par))
 
     q <- do.call(q_fun, args)

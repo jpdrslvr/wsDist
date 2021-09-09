@@ -224,30 +224,28 @@ print.parameters <- function(x, ...) {
 # MÉTODO DOS MOMENTOS L
 
 # distribuição gumbel para mínimos - livro mello
-.gum_min_parameters_mml <- function(x) {
-  l_mom <- unname(samlmu(x))
+.gum_max_parameters_mml <- function(x) {
+  l_mom <- unname(lmom::samlmu(x))
   alpha <- log(2) / l_mom[2]
-  xi <- l_mom[1] + (0.5772/alpha)
+  xi <- l_mom[1] - (0.5772/alpha)
   par <- c(xi = xi, alpha = alpha)
-  .par_class(par, dist = "gum_min", method = "mml")
+  .par_class(par, dist = "gum_max", method = "mml")
 }
 
 # função que retorna a função de ajuste dos parâmetros
 # pelo método dos momentos-L - pacote lmom
 .lmom_par <- function(dist) {
   pel_fun <- get(paste0("pel", dist), as.environment("package:lmom"))
-  dist_name <- ifelse(dist == "gum", "gum_max", dist)
-  # nmom <- ifelse(dist == "wak", 5, 4)
-  nmom <- 5
+  dist_name <- ifelse(dist == "gum", "gum_min", dist)
   function(x) {
-    par <- pel_fun(lmom::samlmu(x, nmom = nmom))
+    par <- pel_fun(lmom::samlmu(x, nmom = 5))
     .par_class(par, dist = dist_name, method = "mml")
   }
 }
 
 for (.dist in names(.DIST_LIST)) {
-  if (.dist != "gum_min") {
-    .dist_name <- ifelse(.dist == "gum_max", "gum", .dist)
+  if (.dist != "gum_max") {
+    .dist_name <- ifelse(.dist == "gum_min", "gum", .dist)
     assign(sprintf(".%s_parameters_mml", .dist), .lmom_par(.dist_name))
   }
 }

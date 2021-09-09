@@ -93,7 +93,7 @@ data.frame(
   format = "html", align = rep("c", 8),
   col.names = c(" ", "MM", "MMV", "MML", 
   "Filliben", "Anderson-Darling", "Qui-quadrado", "Kolmogorov-Smirnov")) %>%
-  add_header_above(c(" " = 1, "Parâmetros" = 3, "Testes" = 4)) %>%
+  add_header_above(c(" " = 1, "Estimadores" = 3, "Testes de aderência" = 4)) %>%
   column_spec(1, bold = T) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "bordered"), full_width = TRUE, position = "center")
 

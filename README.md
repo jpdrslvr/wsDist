@@ -49,8 +49,8 @@ library(wsDist)
 ```
 
 ```
-##  [1] -0.8725546 -0.3054043 -0.4065029 -0.1156478 -0.1117916 -1.9835111
-##  [7]  0.4737094  0.5489315  2.0950892  1.3627847
+##  [1]  1.05130445  1.22780972 -1.04591659 -0.84846927  0.55117450  0.57781418
+##  [7] -0.75632991  0.03205999  0.64355501 -0.53757861
 ```
 
 ```r
@@ -61,8 +61,8 @@ library(wsDist)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------- 
-## mu = 0.0685
-## sigma = 1.1404
+## mu = 0.0895
+## sigma = 0.8340
 ```
 
 ```r
@@ -74,8 +74,8 @@ density_function(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------------------------------- 
-##  [1] 0.24887334 0.33150861 0.32074915 0.34528318 0.34546979 0.06931202
-##  [7] 0.32841677 0.32011263 0.07213296 0.18372029
+##  [1] 0.2460219 0.1884777 0.1893449 0.2541320 0.4104000 0.4030024 0.2860031
+##  [8] 0.4772020 0.3836340 0.3605457
 ```
 
 ```r
@@ -87,8 +87,8 @@ density_function(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ---------------------------------- 
-##  [1] 0.20463552 0.37150545 0.33851569 0.43585773 0.43718960 0.03598368
-##  [7] 0.63881786 0.66321726 0.96221713 0.87178942
+##  [1] 0.87557860 0.91384152 0.08668902 0.13036073 0.71004038 0.72087539
+##  [7] 0.15524096 0.47252583 0.74674062 0.22604784
 ```
 
 ```r
@@ -100,8 +100,8 @@ q_function(p, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## --------------------------------- 
-##  [1] -0.8725546 -0.3054043 -0.4065029 -0.1156478 -0.1117916 -1.9835111
-##  [7]  0.4737094  0.5489315  2.0950892  1.3627847
+##  [1]  1.05130445  1.22780972 -1.04591659 -0.84846927  0.55117450  0.57781418
+##  [7] -0.75632991  0.03205999  0.64355501 -0.53757861
 ```
 
 ```r
@@ -125,8 +125,8 @@ ad_test(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ------------------------------------ 
-## statistic = 0.7885
-## p.value = 0.8593
+## statistic = 1.7590
+## p.value = 0.3378
 ```
 
 ```r
@@ -151,8 +151,8 @@ filliben_test(x, par)
 ## Distribuição Normal
 ## Estimador de parâmetros: Momentos
 ## ---------------------------- 
-## statistic = 0.9761
-## p.value = 0.6287
+## statistic = 0.9708
+## p.value = 0.5117
 ```
 ## Disponibilidade
 
@@ -161,8 +161,8 @@ Distribuições disponíveis para métodos e testes.
  <thead>
 <tr>
 <th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Parâmetros</div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Testes</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Estimadores</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Testes de aderência</div></th>
 </tr>
   <tr>
    <th style="text-align:center;">   </th>

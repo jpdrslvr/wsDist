@@ -138,3 +138,4 @@ print.gof_test <- function(x, ...) {
 #   chi_square_test(x, par)
 #   filliben_test(x, par)
 # })
+
