@@ -226,7 +226,8 @@ print.parameters <- function(x, ...) {
 # distribuição gumbel para mínimos - livro mello
 .gum_min_parameters_mml <- function(x) {
   l_mom <- unname(lmom::samlmu(x))
-  alpha <- l_mom[2] / log(2)
+  # alpha <- l_mom[2] / log(2)
+  alpha <- log(2) / l_mom[2]
   xi <- l_mom[1] + (0.5772/alpha)
   par <- c(xi = xi, alpha = alpha)
   .par_class(par, dist = "gum_min", method = "mml")
@@ -250,11 +251,12 @@ for (.dist in names(.DIST_LIST)) {
   }
 }
 
+# library(lmom)
 # # lmom
 # l <- lmom::samlmu(x) |> unname()
-# pelgum(l)
+# p_max <- pelgum(l)
 # # livro
 #
-# alpha <- l[2]/log(2)
+# alpha <- log(2)/l[2]
 # xi <- l[1] + 0.5772/alpha
 # p_min <- c(xi = xi, alpha = alpha)
