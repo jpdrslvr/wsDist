@@ -22,3 +22,6 @@ install: document
 	R CMD INSTALL --no-multiarch --with-keep.source wsDist;\
 	cd wsDist;\
 	$(MAKE) readme
+
+install-github:
+	Rscript -e "devtools::install_github('jpdrslvr/wsDist')"

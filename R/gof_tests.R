@@ -5,9 +5,28 @@
 #' @return Estatística e p-valor do teste de Anderson-Darling.
 #' @export
 ad_test <- function(x, parameters) {
-  ad <- goftest::ad.test(x, null = prob_function, parameters, estimated = TRUE)
+  # ad <- goftest::ad.test(x, null = prob_function, parameters, estimated = TRUE)
 
-  res <- c(statistic = unname(ad$statistic), p.value = ad$p.value)
+  p <- prob_function(x, parameters)
+
+  p1 <- sort(p)
+  p2 <- 1 - sort(p, decreasing = TRUE)
+
+  N <- length(p)
+  s <- (2 * 1:N - 1) * (log(p1) + log(p2))
+
+  ad_2 <- -N - sum(s)/N
+
+  # correção e valores críticos
+  if (dist %in% c("nor", "ln3")) {
+    corr <- 1 + .75/N + 2.25/(N**2)
+    conf <- c("0.1" = .631, "0.05" = .752, "0.025" = .873, "0.01" = 1.035)
+  } else if (dist %in% c("wei", "gum", "gev", "kap", "wak")) {
+    corr <- 1 + .2/(N**.5)
+    conf <- c("0.1" = .637, "0.05" = .757, "0.025" = .877, "0.01" = 1.038)
+  }
+
+  res <- c(statistic = ad_2 * corr, p.value = unname(conf["0.05"]))
 
   structure(
     res,
@@ -17,6 +36,8 @@ ad_test <- function(x, parameters) {
     test = "ad"
   )
 }
+
+
 
 #' Teste de Qui-quadrado
 #'
