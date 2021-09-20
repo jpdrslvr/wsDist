@@ -84,7 +84,8 @@ quiet <- function(x) {
   switch(dist,
     nor = "qnorm",
     exp = "qexp",
-    gum = "qgumbel",
+    gum_max = "qgumbel",
+    gum_min = "qgumbel",
     wei = "qweibull",
     pe3 = "qpearson3",
     gev = "qgev",
@@ -101,7 +102,7 @@ quiet <- function(x) {
     gringorten = "Gringorton",
     blom = "Blom",
     cunnane = "Cunane",
-    "weibull"
+    "Weibull"
   )
 
 }

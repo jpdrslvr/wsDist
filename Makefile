@@ -1,3 +1,5 @@
+all: install
+
 clean:
 	@rm -f R/exports.R
 
@@ -9,19 +11,19 @@ export: clean
 	done
 
 readme:
-	@echo "- Gerando README\n" ;\
-	Rscript -e "print(getwd()); library(knitr); knitr::knit('README.Rmd', 'README.md')"
+	@echo "\033[92m- Gerando README\033[0m\n" ;\
+	Rscript --vanilla -e "library(knitr); knitr::knit('README.Rmd', 'README.md', quiet = TRUE)"
 
 document: export
-	@echo "- Atualizando documentação\n" ;\
-	Rscript -e "devtools::document()"
+	@echo "\033[92m- Atualizando documentação\033[0m\n" ;\
+	Rscript --vanilla -e "devtools::document()"
 
 install: document
-	@echo "\n- Instalando\n" ;\
+	@echo "\033[92m\n- Instalando\033[0m\n" ;\
 	cd ..;\
 	R CMD INSTALL --no-multiarch --with-keep.source wsDist;\
 	cd wsDist;\
-	$(MAKE) readme
+	$(MAKE) -s readme
 
 install-github:
 	Rscript -e "devtools::install_github('jpdrslvr/wsDist')"

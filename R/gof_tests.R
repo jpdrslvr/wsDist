@@ -5,15 +5,21 @@
 #' @return Estatística e p-valor do teste de Anderson-Darling.
 #' @export
 ad_test <- function(x, parameters) {
-  # ad <- goftest::ad.test(x, null = prob_function, parameters, estimated = TRUE)
-
   p <- prob_function(x, parameters)
+
+  dist <- attr(parameters, "dist")
 
   p1 <- sort(p)
   p2 <- 1 - sort(p, decreasing = TRUE)
 
-  N <- length(p)
-  s <- (2 * 1:N - 1) * (log(p1) + log(p2))
+  df <- data.frame(p1 = p1, p2 = p2)
+
+  df$p1[df$p1 == 0] <- 10e-5
+  df$p2[df$p2 == 0] <- 10e-5
+
+
+  N <- length(df$p1)
+  s <- (2 * 1:N - 1) * (log(df$p1) + log(df$p2))
 
   ad_2 <- -N - sum(s)/N
 
@@ -30,7 +36,7 @@ ad_test <- function(x, parameters) {
 
   structure(
     res,
-    class = "gof_test",
+    class = c("gof_test", "numeric"),
     dist = attr(parameters, "dist"),
     method = attr(parameters, "method"),
     test = "ad"
@@ -47,13 +53,17 @@ ad_test <- function(x, parameters) {
 #' @return Estatística e p-valor do teste de Qui-quadrado.
 #' @export
 chi_square_test <- function(x, parameters, formula = "weibull") {
-  cs <- chisq.test(plotting_position(x, formula), prob_function(x, par))
+
+  suppressWarnings({
+    cs <- chisq.test(plotting_position(x, formula), prob_function(x, parameters))
+  })
+
 
   res <- c(statistic = unname(cs$statistic), p.value = cs$p.value)
 
   structure(
     res,
-    class = "gof_test",
+    class = c("gof_test", "numeric"),
     dist = attr(parameters, "dist"),
     method = attr(parameters, "method"),
     test = "chi_square"
@@ -70,12 +80,12 @@ chi_square_test <- function(x, parameters, formula = "weibull") {
 #' @return Estatística e p-valor do teste de Kolmogorov–Smirnov.
 #' @export
 ks_test <- function(x, parameters, formula = "weibull") {
-  ks <- ks.test(plotting_position(x, formula), prob_function(x, par))
+  ks <- ks.test(plotting_position(x, formula), prob_function(x, parameters))
   res <- c(statistic = unname(ks$statistic), p.value = ks$p.value)
 
   structure(
     res,
-    class = "gof_test",
+    class = c("gof_test", "numeric"),
     dist = attr(parameters, "dist"),
     method = attr(parameters, "method"),
     test = "ks"
@@ -99,20 +109,21 @@ filliben_test <- function(x, parameters, formula = "weibull") {
   if (is.null(qfn))
     stop(sprintf("Not available for distribution: %s", crayon::red(dist)))
 
-  if ("qfn" == "qglogis")
-    shape <- 0
-  else
-    shape <- NULL
+  shape <- switch(qfn,
+    "qglogis" = parameters["k"],
+    "qgev" = parameters["k"],
+    "qpearson3" = parameters["gamma"],
+    "qweibull" = parameters["delta"],
+    NULL
+  )
 
   filliben <- ppcc::ppccTest(as.numeric(x), qfn = qfn, shape = shape, ppos = ppos)
-
-  assign("filliben", filliben, envir = .GlobalEnv)
 
   res <- c(statistic = unname(filliben$statistic), p.value = filliben$p.value)
 
   structure(
     res,
-    class = "gof_test",
+    class = c("gof_test", "numeric"),
     dist = attr(parameters, "dist"),
     method = attr(parameters, "method"),
     test = "filliben"
