@@ -11,7 +11,7 @@ export: clean
 	done
 
 readme:
-	@echo "\033[92m- Gerando README\033[0m\n" ;\
+	@echo "\033[92m\n- Gerando README\033[0m\n" ;\
 	Rscript --vanilla -e "library(knitr); knitr::knit('README.Rmd', 'README.md', quiet = TRUE)"
 
 document: export

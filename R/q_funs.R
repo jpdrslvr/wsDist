@@ -37,27 +37,43 @@ print.q_function <- function(x, ...) {
 }
 
 .q_funs_list <- list(
-  gam     = qgamma,
-  gev     = EnvStats::qgevd,
-  glo     = glogis::qglogis,
-  gno     = gnorm::qgnorm,
-  gpa     = Pareto::qPareto,
-  gum_min = function(p, xi, alpha) lmom::quagum(p, c(xi, alpha)),
-  gum_max = function(p, xi, alpha) lmom::quagum(p, c(xi, alpha)),
-  kap     = FAdist::qkappa4,
-  ln3     = FAdist::qlnorm3,
-  nor     = qnorm,
-  pe3     = PearsonDS::qpearsonIII,
-  wak     = function(p, xi, alpha, beta, gamma, delta) lmomco::quawak(p, c(xi, alpha, beta, gamma, delta)),
-  wei     = FAdist::qweibull3
+  gam     = function(f, alpha, beta) lmom::quagam(f, c(alpha, beta)),
+  gev     = function(f, xi, alpha, k) lmom::quagev(f, c(xi, alpha, k)),
+  glo     = function(f, xi, alpha, k) lmom::quaglo(f, c(xi, alpha, k)),
+  gno     = function(f, xi, alpha, k) lmom::quagno(f, c(xi, alpha, k)),
+  gpa     = function(f, xi, alpha, k) lmom::quagpa(f, c(xi, alpha, k)),
+  gum_min = function(f, xi, alpha) (log(-log(1 - f)) / alpha) + xi,
+  gum_max = function(f, xi, alpha) lmom::quagum(f, c(xi, alpha)),
+  kap     = function(f, xi, alpha, k, h) lmom::quakap(f, c(xi, alpha, k, h)),
+  ln3     = function(f, zeta, mu, sigma) lmom::qualn3(f, c(zeta, mu, sigma)),
+  nor     = function(f, mu, sigma) lmom::quanor(f, c(mu, sigma)),
+  pe3     = function(f, mu, sigma, gamma) lmom::quape3(f, c(mu, sigma, gamma)),
+  wak     = function(f, xi, alpha, beta, gamma, delta) lmom::quawak(f, c(xi, alpha, beta, gamma, delta)),
+  wei     = function(f, zeta, beta, delta) lmom::quawei(f, c(zeta, beta, delta))
 )
+
+# .q_funs_list <- list(
+#   gam     = qgamma,
+#   gev     = EnvStats::qgevd,
+#   glo     = glogis::qglogis,
+#   gno     = gnorm::qgnorm,
+#   gpa     = Pareto::qPareto,
+#   gum_min = function(p, xi, alpha) lmom::quagum(p, c(xi, alpha)),
+#   gum_max = function(p, xi, alpha) lmom::quagum(p, c(xi, alpha)),
+#   kap     = FAdist::qkappa4,
+#   ln3     = FAdist::qlnorm3,
+#   nor     = qnorm,
+#   pe3     = PearsonDS::qpearsonIII,
+#   wak     = function(p, xi, alpha, beta, gamma, delta) lmomco::quawak(p, c(xi, alpha, beta, gamma, delta)),
+#   wei     = FAdist::qweibull3
+# )
 
 .q_fun <- function(dist) {
   q_fun <- .q_funs_list[[dist]]
 
-  function(p, parameters) {
+  function(f, parameters) {
     par <- as.list(parameters)
-    args <- list(p)
+    args <- list(f)
     args <- c(args, unname(par))
 
     q <- do.call(q_fun, args)
