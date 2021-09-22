@@ -24,10 +24,10 @@ ad_test <- function(x, parameters) {
   ad_2 <- -N - sum(s)/N
 
   # correção e valores críticos
-  if (dist %in% c("nor", "ln3")) {
+  if (dist %in% c("nor", "ln3", "gam", "glo", "gno", "exp")) {
     corr <- 1 + .75/N + 2.25/(N**2)
     conf <- c("0.1" = .631, "0.05" = .752, "0.025" = .873, "0.01" = 1.035)
-  } else if (dist %in% c("wei", "gum", "gev", "kap", "wak")) {
+  } else if (dist %in% c("wei", "gum", "gpa", "pe3", "gev", "kap", "wak")) {
     corr <- 1 + .2/(N**.5)
     conf <- c("0.1" = .637, "0.05" = .757, "0.025" = .877, "0.01" = 1.038)
   }
