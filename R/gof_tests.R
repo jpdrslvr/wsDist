@@ -55,7 +55,11 @@ ad_test <- function(x, parameters) {
 chi_square_test <- function(x, parameters, formula = "weibull") {
 
   suppressWarnings({
-    cs <- chisq.test(plotting_position(x, formula), prob_function(x, parameters))
+    cs <- chisq.test(
+      plotting_position(x, formula),
+      p = prob_function(x, parameters),
+      rescale.p = TRUE
+    )
   })
 
 
